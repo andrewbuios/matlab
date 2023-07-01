@@ -1,0 +1,19 @@
+clc; clear all; close all;
+num=input('enter the numerator polynomial vector \n'); %[1 0 0] 
+den=input('enter the denominator polynomial vector \n');%[1 1 0.16]
+H=filt(num,den)
+z=zero(H);
+disp('the zeros are at ');
+disp(z);
+[r p k]=residuez(num,den);
+disp('the poles are at ');
+disp(p);
+zplane(num,den);
+title('Pole-Zero map in the Z-plane');
+if max(abs(p))>=1
+    disp('all the poles do not lie with in the unit circle');
+    disp('hence the system is not stable');
+else
+    disp('all the poles lie with in the unit circle');
+    disp('hence the system is stable');
+end;

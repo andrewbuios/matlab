@@ -1,0 +1,19 @@
+6) Transfer Function Stability Analysis
+(a)
+clc; clear all; close all;
+num=input('enter the numerator polynomial vector\n');    % [1 -2 1]
+den=input('enter the denominator polynomial vector\n');    % [1 6 11 6]
+H=tf(num,den)
+[p z]=pzmap(H);
+disp('zeros are at ');
+disp(z);
+disp('poles are at ');
+disp(p);
+pzmap(H);
+if max(real(p))>=0
+    disp(' All the poles do not lie in the left half of S-plane ');
+    disp(' the given LTI systen is not a stable system ');
+else
+    disp('All the poles lie in the left half of S-plane ');
+    disp(' the given LTI systen is a stable system '); 
+end;

@@ -1,0 +1,50 @@
+clc;clear all;close all;
+x=[0:15];
+for i=1:16
+y(i)=1;
+end
+subplot(2,3,1)
+stem(x,y)
+title('Discrete time Step Function')
+xlabel('Samples')
+ylabel('Step function')
+for i=1:16
+y(i)=x(i);
+end
+subplot(2,3,2)
+stem(x,y)
+title('Discrete time Ramp Function')
+xlabel('Samples')
+ylabel('Ramp signal')
+y=[zeros(1,4),1,zeros(1,11)];
+subplot(2,3,3)
+stem(x,y)
+title('Discrete time Impulse Function')
+xlabel('Samples')
+ylabel('Impulse function')
+for i=1:16
+y(i)=exp(-0.22*i);
+end
+subplot(2,3,4)
+stem(x,y)
+title('Discrete time Exponential Function')
+xlabel('Samples')
+ylabel('Exponential function')
+z=[1:35]
+for i=1:35
+y(i)=sin(2*pi*0.1*i)
+end
+subplot(2,3,5)
+stem(z,y)
+title('Discrete time Sine Function')
+xlabel('Samples')
+ylabel('Sine function')
+z=[1:35]
+for i=1:35
+y(i)=cos(2*pi*0.1*i)
+end
+subplot(2,3,6)
+stem(z,y)
+title('Discrete time Cosine Function')
+xlabel('Samples')
+ylabel('Cosine function')
